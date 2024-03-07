@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { StarshipItemComponent } from './starship-item.component';
+
+describe('StarshipItemComponent', () => {
+  let component: StarshipItemComponent;
+  let fixture: ComponentFixture<StarshipItemComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [StarshipItemComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(StarshipItemComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -1,1 +1,11 @@
-<p>starship-list works!</p>
+@if(starshipResult$ | async; as resultObject){
+    <ul class="starship-list">
+        @for (item of resultObject.results; track item.name) {
+            <li>
+                <app-starship-item [starshipInfo]="item"/>
+
+            </li>
+        }
+    </ul>
+}
+ 
