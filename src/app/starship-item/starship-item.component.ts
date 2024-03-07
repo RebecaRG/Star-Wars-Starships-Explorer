@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Starship } from '../interfaces/starship'; // Fixed the import path
+import { Starship } from '../interfaces/starship'; 
 
 @Component({
   selector: 'app-starship-item',
