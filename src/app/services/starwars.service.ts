@@ -8,12 +8,15 @@ import { StarshipResults } from '../interfaces/starship';
 })
 
  export class StarwarsService {
+  static getStarShipList() {
+    throw new Error('Method not implemented.');
+  }
 
-  private baseUrl = 'https://swapi.py4e.com/api/starships/';
+  private baseUrl = 'https://swapi.py4e.com/api';
 
    constructor(private http: HttpClient) { }
 
-   getStarShipList(url: string = `${this.baseUrl}?limit=10&page=1`): Observable<StarshipResults> {
+   getStarShipList(url: string = `${this.baseUrl}/starships`): Observable<StarshipResults> {
     return this.http.get<StarshipResults>(url);
    }
 

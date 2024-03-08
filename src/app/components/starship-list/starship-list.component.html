@@ -1,16 +1,18 @@
+<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+  @if(starshipResult$ | async; as resultObject){
 
-@if(starshipResult$ | async; as resultObject){
-    <div class="container py-4">
+  <div class="container py-4">
     <div class="row d-flex align-items-center mx-5">
-        
-        @for (item of resultObject.results; track item.name) {
-            <div >
-                <app-starship-item [starshipInfo]="item"/>
-
-            </div>
-        }
-
+      @for(starship of starshipArray; track $index){
+      <button (click)="moreInfo()"
+        class="text-secondary text-start px-4 py-2 border border-0 border-rounded rounded-1 cardCustom my-2 col-10 mx-5">
+        <span class="textName">{{
+            starshipArray[$index].name.toUpperCase()
+        }}</span><br />
+        <span class="textModel">{{ starshipArray[$index].model }}</span>
+      </button>
+      }
+    </div>
+  </div>
+  }
 </div>
-</div>
-}
- 
