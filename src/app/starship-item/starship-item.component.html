@@ -1,4 +1,4 @@
-<div class="card">
-    <p>{{ starshipInfo.name }}</p>
-    <p>{{ starshipInfo.model }}</p>
-</div>
+<button (click)="moreInfo()" class="text-secondary text-start px-4 py-2 border border-0 border-rounded rounded-1 cardCustom my-2 col-10 mx-5">
+    <span class="textName">{{ (starshipInfo.name).toUpperCase() }}</span><br>
+    <span class="textModel">{{ starshipInfo.model }}</span>
+</button>

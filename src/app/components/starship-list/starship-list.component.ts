@@ -20,4 +20,6 @@ export class StarshipListComponent implements OnInit{
   ngOnInit(): void {
     this.starshipResult$ = this.service.getStarShipList();
   }
+
+  
 }

@@ -9,9 +9,13 @@ import { StarshipResults } from '../interfaces/starship';
 
  export class StarwarsService {
 
+  private baseUrl = 'https://swapi.py4e.com/api/starships/';
+
    constructor(private http: HttpClient) { }
 
-   getStarShipList(): Observable<StarshipResults>{
-      return this.http.get<StarshipResults>('https://swapi.py4e.com/api/starships/?limit=10&offset=0');
+   getStarShipList(url: string = `${this.baseUrl}?limit=10&page=1`): Observable<StarshipResults> {
+    return this.http.get<StarshipResults>(url);
    }
+
+   
 }

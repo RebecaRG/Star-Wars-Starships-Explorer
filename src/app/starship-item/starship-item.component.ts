@@ -11,4 +11,8 @@ import { Starship } from '../interfaces/starship';
 export class StarshipItemComponent {
   @Input() starshipInfo!: Starship;
 
+  moreInfo(){
+    console.log(this.starshipInfo);
+  }
+
 }

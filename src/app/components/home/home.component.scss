@@ -1,8 +1,8 @@
-// :host {
-//     background-color: black;
-//     display: block; 
-//     min-height: 100vh;
-// }
+:host {
+    background-color: black;
+    display: block; 
+    min-height: 100vh;
+}
 
 .logo{
     height: 7rem;
@@ -11,8 +11,4 @@
 .logo img{
     height: 100%;
     width: auto;
-}
-
-.alt{
-    height: 200px;
 }
