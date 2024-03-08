@@ -1,20 +1,9 @@
 import { Routes } from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { StarshipListComponent } from './components/starship-list/starship-list.component';
 
-export const routes: Routes = [];
-
-// import { NgModule } from '@angular/core';
-// import { RouterModule, Routes } from '@angular/router';
-// import { LoginComponent } from './components/login/login.component';
-
-// export const routes: Routes = [
-//     { path: '', redirectTo: '/login', pathMatch: 'full'},
-//     { path: 'login', component: LoginComponent},
-// ];
-
-// @ NgModule({
-//     imports: [RouterModule.forRoot(routes)],
-//     exports: [RouterModule]
-// })
-
-// export class AppRoutingModule { }
-
+export const routes: Routes = [
+    {path: 'home', component: WelcomeComponent},
+    {path: 'starships', component: StarshipListComponent},
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
+];
