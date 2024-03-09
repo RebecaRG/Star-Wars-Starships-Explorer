@@ -1,1 +1,21 @@
-<p>details works!</p>
+<div>
+  @if(starship$ | async; as starship){
+  <div class="text-white">
+    <h2>{{(starship.name).toUpperCase() }}</h2>
+    <p>
+      The {{ starship.name }} is distinguished for its capability to carry up to
+      {{ starship.passengers }} passengers and has a cargo capacity of
+      {{ starship.cargo_capacity }} kg. It features a hyperdrive rating of
+      {{ starship.hyperdrive_rating }} and it supports consumables for up to
+      {{ starship.consumables }}.
+    </p>
+
+    <p>Model: {{ starship.model }}</p>
+    <p>Const in credits: {{ starship.cost_in_credits }}</p>
+    <p>Atmospheric Spedd: {{ starship.max_atmosphering_speed }}</p>
+    <p>Manufacturer: {{ starship.manufacturer }}</p>
+    <p>Length: {{ starship.length }}</p>
+    <p>Crew: {{ starship.crew }}</p>
+  </div>
+  }
+</div>
