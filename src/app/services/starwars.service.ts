@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { StarshipResults } from '../interfaces/starship';
 import { Starship } from '../interfaces/starship';
 import { Pilot } from '../interfaces/pilots';
+import { Film } from '../interfaces/film';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,10 @@ import { Pilot } from '../interfaces/pilots';
 
   getPilotDetails(url: string) : Observable<Pilot>{
     return this.http.get<Pilot>(url);
+  }
+
+  getFilmDetails(url: string) : Observable<Film>{
+    return this.http.get<Film>(url);
   }
   
 }

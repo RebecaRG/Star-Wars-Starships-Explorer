@@ -1,1 +1,18 @@
-<p>films-details works!</p>
+@if(films$ | async; as films){
+    @if(films.length >0) {
+<div class="container">
+    <h2 class="my-3">FILMS</h2>
+   
+        @for(film of films; track $index){
+        <div class="card my-2 border rounded-3 border-0">
+            <img [src]="getFilmImage(film.url)" class="card-img-top" alt="{{film.title}}"> 
+            <div class="card-body bg-secondary">
+                <h3 class="card-text text-white">{{(film.title).toUpperCase()}}</h3>
+                <h5 class="card-text text-white">Episode {{film.episode_id}}</h5>
+
+            </div>
+        </div>
+    }
+</div>
+}
+}
