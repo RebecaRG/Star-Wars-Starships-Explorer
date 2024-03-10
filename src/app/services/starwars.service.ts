@@ -14,16 +14,20 @@ import { Starship } from '../interfaces/starship';
   }
 
   private baseUrl = 'https://swapi.py4e.com/api';
+  private imageBaseUrl = 'https://starwars-visualguide.com/assets/img';
 
-   constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-   getStarShipList(url: string = `${this.baseUrl}/starships`): Observable<StarshipResults> {
+  getStarShipList(url: string = `${this.baseUrl}/starships`): Observable<StarshipResults> {
     return this.http.get<StarshipResults>(url);
-   }
+  }
 
-   getStarshipDetails(id: string) : Observable<Starship>{
+  getStarshipDetails(id: string) : Observable<Starship>{
     return this.http.get<Starship>(`${this.baseUrl}/starships/${id}`);
-   }
+  }
 
+  getStarshipImage(id: string) {
+    return `${this.imageBaseUrl}/starships/${id}.jpg`;
+  }
    
 }

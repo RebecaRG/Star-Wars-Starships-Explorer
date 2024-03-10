@@ -6,8 +6,6 @@
       @for(starship of starshipArray; track $index){
         <button [routerLink] = "['/starships' , extractId(starshipArray[$index].url)]"
         class="text-secondary text-start px-4 py-2 border border-0 border-rounded rounded-1 cardCustom my-2 col-10 mx-5">
-      <!-- <button (click)="moreInfo()"
-        class="text-secondary text-start px-4 py-2 border border-0 border-rounded rounded-1 cardCustom my-2 col-10 mx-5"> -->
         <span class="textName">{{
             starshipArray[$index].name.toUpperCase()
         }}</span><br />

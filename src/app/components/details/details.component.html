@@ -1,5 +1,7 @@
-<div>
+<div class="container">
+    <h2 class="my-3">STARSHIP</h2>
   @if(starship$ | async; as starship){
+    <img [src]="imageUrl" alt="Image of {{ starship.name }}" class="mb-3" (error)="imageError()">
   <div class="text-white">
     <h2>{{(starship.name).toUpperCase() }}</h2>
     <p>
@@ -18,4 +20,6 @@
     <p>Crew: {{ starship.crew }}</p>
   </div>
   }
+  <button routerLink="/starships">Starship list</button>
 </div>
+
