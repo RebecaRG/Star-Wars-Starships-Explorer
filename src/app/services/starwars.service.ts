@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StarshipResults } from '../interfaces/starship';
 import { Starship } from '../interfaces/starship';
+import { Pilot } from '../interfaces/pilots';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,9 @@ import { Starship } from '../interfaces/starship';
   getStarshipImage(id: string) {
     return `${this.imageBaseUrl}/starships/${id}.jpg`;
   }
-   
+
+  getPilotDetails(url: string) : Observable<Pilot>{
+    return this.http.get<Pilot>(url);
+  }
+  
 }

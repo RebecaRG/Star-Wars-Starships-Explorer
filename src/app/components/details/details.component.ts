@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { RouterLink } from '@angular/router';
+import { PilotsDetailsComponent } from '../pilots-details/pilots-details.component';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [AsyncPipe, RouterLink],
+  imports: [AsyncPipe, RouterLink, PilotsDetailsComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })

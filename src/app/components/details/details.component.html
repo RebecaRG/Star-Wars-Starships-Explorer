@@ -19,7 +19,13 @@
     <p>Length: {{ starship.length }}</p>
     <p>Crew: {{ starship.crew }}</p>
   </div>
-  }
-  <button routerLink="/starships">Starship list</button>
+ 
+
+
+<app-pilots-details [pilotsUrl]="starship.pilots"></app-pilots-details>
+}
+
+<button routerLink="/starships">Starship list</button>
+
 </div>
 

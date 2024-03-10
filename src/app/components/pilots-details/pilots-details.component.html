@@ -1,1 +1,17 @@
-<p>pilots-details works!</p>
+@if(pilots$ | async; as pilots){
+    @if(pilots.length >0) {
+<div class="container">
+    <h2 class="my-3">PILOTS</h2>
+   
+        @for(pilot of pilots; track $index){
+        <div class="card my-2 border rounded-3 border-0">
+            <img [src]="getPilotImage(pilot.url)" class="card-img-top" alt="..."> 
+            <div class="card-body bg-secondary">
+                <h3 class="card-text text-white">{{pilot.name}}</h3>
+            </div>
+        </div>
+    }
+</div>
+}
+}
+
