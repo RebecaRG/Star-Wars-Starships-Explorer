@@ -27,6 +27,18 @@
       "password": "$2a$10$YP1HrM04RxBwAti2sE1vCudRiS.prUgBVh.aU2lJ48ygOhbCx8sJ6",
       "fullName": "Test Test",
       "id": 5
+    },
+    {
+      "email": "test4@test.com",
+      "password": "$2a$10$yMko0KvXTnlHMPBgKag4nuMDi96LlpEgoQozOA3vp49DxbzwKZS1G",
+      "fullName": "Testing",
+      "id": 6
+    },
+    {
+      "email": "test2@test.com",
+      "password": "$2a$10$DjuvYIRWS7wF2QK0zwg/4.0BsQTTWQYRuiRflRdjTbr2dKnLstdMK",
+      "fullName": "TST",
+      "id": 7
     }
   ]
 }

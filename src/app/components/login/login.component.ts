@@ -1,4 +1,4 @@
-import { Component, Input, Output} from '@angular/core';
+import { Component} from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -13,6 +13,9 @@ import { UserService } from '../../services/user.service';
 export class LoginComponent {
 
   constructor(private userService: UserService, private router: Router) { }
+
+  showAlert: boolean = false;
+  alertMessage: string = "";
  
   get email(){
     return this.loginForm.get('email') as FormControl;
@@ -27,29 +30,32 @@ export class LoginComponent {
     'password' : new FormControl ('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{3,}$/)])
   });
 
-  loginUser(){
+  loginUser() {
     const { email, password } = this.loginForm.value;
   
     if (typeof email === 'string' && typeof password === 'string') {
-      this.userService.login(email, password).subscribe(
-        response => {
-          if(response.accessToken){
-            localStorage.setItem('email', email); 
-            localStorage.setItem('token', response.accessToken); 
+      this.userService.login(email, password).subscribe({
+        next: (response) => {
+          if (response && response.accessToken) {
+            localStorage.setItem('email', email);
+            localStorage.setItem('token', response.accessToken);
             this.router.navigate(['/home']);
-          }else{
-            alert("Invalid credentials");
           }
         },
-        error => {
-          alert("Something went wrong");
+        error: (error) => {
+          this.showAlert = true;
+          console.log(error);
+          this.alertMessage = error.message;
         }
-      )
-    } else {
-      alert("Please fill in all fields");
+      });
     }
   }
 
-  
+  closeAlert() {
+    this.showAlert = false;
+  }
 }
+
+
+
 

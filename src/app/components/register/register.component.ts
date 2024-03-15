@@ -1,4 +1,4 @@
-import { Component, Input, Output} from '@angular/core';
+import { Component} from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { passwordMatchValidator } from '../shared/password-match.directive';
@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+
+  showError: boolean = false;
+  errorMessage: string = '';
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -44,26 +47,25 @@ export class RegisterComponent {
     validators: passwordMatchValidator
   });
 
-  // errorTotal = false;
-
 
 submitDetails() {
   const postData = { ...this.registerForm.value }; 
   delete postData.confirmPassword; 
   this.userService.registerUser(postData as User).subscribe({
     next: (response) => {
-      console.log(response);
-    
       localStorage.setItem('email', postData.email!); 
       localStorage.setItem('token', response.accessToken);
-      alert("Registered successfully");
       this.router.navigate(['/home']); 
     },
     error: (error) => {
-      console.error(error);
-      alert("Something went wrong");
+      this.showError = true;
+      this.errorMessage = error.message;
     }
   });
+}
+
+closeAlert() {
+  this.showError = false;
 }
 
 }
