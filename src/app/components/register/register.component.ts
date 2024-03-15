@@ -46,18 +46,24 @@ export class RegisterComponent {
 
   // errorTotal = false;
 
-  submitDetails(){
-    // console.log(this.registerForm.value);
-    const postData = {... this.registerForm.value}; 
-    delete postData.confirmPassword;
-    this.userService.registerUser(postData as User).subscribe(
-      response => {console.log(response),
+
+submitDetails() {
+  const postData = { ...this.registerForm.value }; 
+  delete postData.confirmPassword; 
+  this.userService.registerUser(postData as User).subscribe({
+    next: (response) => {
+      console.log(response);
+    
+      localStorage.setItem('email', postData.email!); 
+      localStorage.setItem('token', response.accessToken);
       alert("Registered successfully");
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']); 
     },
-    error => {
-    alert("Something went wrong")
-  }
-    )
-  }
+    error: (error) => {
+      console.error(error);
+      alert("Something went wrong");
+    }
+  });
+}
+
 }

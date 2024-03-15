@@ -21,6 +21,12 @@
       "password": "$2a$10$xV3L3Gx7egi5HUK1.HRw9eeAhmz/fcTXt9YLTsJqqFDxyMEOUXHJm",
       "fullName": "test",
       "id": 4
+    },
+    {
+      "email": "test1@test.com",
+      "password": "$2a$10$YP1HrM04RxBwAti2sE1vCudRiS.prUgBVh.aU2lJ48ygOhbCx8sJ6",
+      "fullName": "Test Test",
+      "id": 5
     }
   ]
 }

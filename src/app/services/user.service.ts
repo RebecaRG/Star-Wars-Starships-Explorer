@@ -13,17 +13,20 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  registerUser(userDetails: User): Observable<any> {
-    return this.getUserByEmail(userDetails.email).pipe(
-      switchMap((users: User[]) => {
-        if (users.length > 0) {
-          return throwError(() => new Error('Email already in use'));
-        } else {
-          return this.http.post(`${this.baseUrl}/users`, userDetails);
-        }
-      })
-    );
-  }
+registerUser(userDetails: User): Observable<any> {
+  return this.getUserByEmail(userDetails.email).pipe(
+    switchMap((users: User[]) => {
+      if (users.length > 0) {
+        return throwError(() => new Error('Email already in use'));
+      } else {
+        return this.http.post(`${this.baseUrl}/users`, userDetails).pipe(
+          switchMap(() => this.login(userDetails.email, userDetails.password))
+        );
+      }
+    })
+  );
+}
+
   
 
   getUserByEmail(email: string): Observable<User[]>{
@@ -33,6 +36,8 @@ export class UserService {
   login(email: string, password: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/login`, { email, password });
   }
+
+  
 
 
 
