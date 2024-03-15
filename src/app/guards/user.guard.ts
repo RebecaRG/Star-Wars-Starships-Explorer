@@ -1,13 +1,14 @@
-import { CanActivateFn } from '@angular/router';
+import { CanActivateFn, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 
 
-export const userGuard: CanActivateFn = (route, state) => {
+export const userGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  const router = inject(Router);
   if(localStorage.getItem('email')){
     return true;
   }else{
-    const router =inject(Router);
-    return router.navigate(['/login']);
+    router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    return false;
   }
 };

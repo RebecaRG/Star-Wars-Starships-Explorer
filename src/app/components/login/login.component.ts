@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
   showAlert: boolean = false;
   alertMessage: string = "";
@@ -30,8 +30,16 @@ export class LoginComponent {
     'password' : new FormControl ('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{3,}$/)])
   });
 
+  loading = false;
+
   loginUser() {
     const { email, password } = this.loginForm.value;
+
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
   
     if (typeof email === 'string' && typeof password === 'string') {
       this.userService.login(email, password).subscribe({
@@ -39,13 +47,14 @@ export class LoginComponent {
           if (response && response.accessToken) {
             localStorage.setItem('email', email);
             localStorage.setItem('token', response.accessToken);
-            this.router.navigate(['/home']);
+            const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+            this.router.navigateByUrl(returnUrl);
           }
         },
         error: (error) => {
           this.showAlert = true;
-          console.log(error);
           this.alertMessage = error.message;
+          this.loading = false;
         }
       });
     }
