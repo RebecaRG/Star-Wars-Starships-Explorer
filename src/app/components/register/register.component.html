@@ -1,1 +1,76 @@
-<p>register works!</p>
+
+<!-- <div class="logo d-flex justify-content-center">
+    <img class=" mt-5" src="/assets/logo.webp">
+</div> -->
+<div class="container py-5">
+
+        <div class="card p-4">
+            <form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+
+                <div class="form-group my-2">
+                    <label for="fullName">Fullname</label>
+                    <input type="text" formControlName= "fullName" class="form-control my-2" placeholder="Type your name">
+                    <div class="text-danger mt-1" [hidden]="fullName.valid || fullName.pristine">
+                    <small>
+                        @if(fullName.errors?.['required']){
+                        Name is required}</small>
+                    <small>
+                        @if(fullName.errors?.['pattern']){
+                        Enter a valid name }</small>
+                    </div>
+                  </div>
+
+               
+                <div class="form-group my-2">
+                <label for="email">Email address</label>
+                <input type="email" formControlName= "email" class="form-control my-2" placeholder="Enter Email">
+                <div class="text-danger mt-1" [hidden]="email.valid || email.pristine">
+                    
+                    <small>
+                        @if(email.errors?.['required']){
+                        Email is required}</small>
+                   <small>
+                        @if(email.errors?.['email']){
+                        Email should be valid}</small>
+                </div>
+                </div>
+                <div class="form-group my-2">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName= "password" class="form-control my-2" placeholder="Password">
+                    <div class="text-danger mt-1" [hidden]="password.valid || password.pristine">
+                        <small>
+                            @if(password.errors?.['required']){
+                            Password is required}</small>
+                        <small>
+                            @if(password.errors?.['pattern']){
+                            Password should be valid}</small>
+                    </div>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <label for="confirmPassword">Confirm password</label>
+                        <input type="password" formControlName= "confirmPassword" class="form-control my-2" placeholder="Confirm password">
+                        <div class="text-danger mt-1" [hidden]="!confirmPassword.touched">
+                            <small>
+                                @if(confirmPassword.errors?.['required']){
+                                Confirm the password}</small>
+                                <small>
+                                    @if(registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid){
+                                    Password should match}</small>
+                            <!-- <small>
+                                @if(confirmPassword.errors?.['pattern']){
+                                Password should be valid}</small> -->
+                        </div>
+                        </div>
+
+                    <button type="submit" class="btn btn-secondary" [disabled]="registerForm.invalid">REGISTER</button>
+
+                    <div class="my-2">
+                        <span>Alredy a member? </span><a routerLink="/login">Login</a>
+    
+                    </div>
+            
+            </form>
+    
+        </div>
+    </div>

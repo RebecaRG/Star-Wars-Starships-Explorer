@@ -11,13 +11,15 @@
     <img src="/assets/logo.webp">
 </div>
 <div class="me-5 mt-3">
-    <p class="text-white">LOGIN // SIGN UP</p>
+    <a class="nav-link text-white" routerLink="/login">LOGIN</a>
+    <a href="" class="nav-link text-white" (click)="logOut()">LOGOUT</a>
 </div>
 </div>
 
 </div>
 <app-navbar/>
- <!-- <app-starship-list/>  -->
+<router-outlet></router-outlet>
+
 
 
 
