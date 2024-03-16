@@ -1,9 +1,17 @@
-<div class="container">
-    <h2 class="my-3">STARSHIP</h2>
+<div class="container text-white my-4">
+    <h2 class="mt-5 mb-3">STARSHIP</h2>
+    <hr class="mb-4">
+    
   @if(starship$ | async; as starship){
-    <img [src]="imageUrl" alt="Image of {{ starship.name }}" class="mb-3" (error)="imageError()">
-  <div class="text-white">
-    <h2>{{(starship.name).toUpperCase() }}</h2>
+    <div class="card cardCustom text-white rounded-4 border-0">
+      <div class="row g-0">
+        <div class="col-lg-5">
+    <img [src]="imageUrl" class="imgCustom rounded-img" alt="Image of {{ starship.name }}" (error)="imageError()">
+  </div>
+ 
+  <div class="col-lg-7">
+    <div class="card-body">
+    <h2 class="mb-4">{{(starship.name).toUpperCase() }}</h2>
     <p>
       The {{ starship.name }} is distinguished for its capability to carry up to
       {{ starship.passengers }} passengers and has a cargo capacity of
@@ -19,7 +27,9 @@
     <p>Length: {{ starship.length }}</p>
     <p>Crew: {{ starship.crew }}</p>
   </div>
- 
+</div>
+</div>
+</div>
 
 
 <app-pilots-details [pilotsUrl]="starship.pilots"></app-pilots-details>
