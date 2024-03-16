@@ -1,0 +1,18 @@
+:host {
+    font-family: 'Victor Mono', monospace;
+}
+.cardCustom{
+    background-color: #151515;
+    width: 320px;
+    height: 475px;
+}
+
+.imgCustom{
+    height: 375px;
+    object-fit: cover;
+}
+
+.rounded-img {
+    border-top-left-radius: 0.75rem; 
+    border-top-right-radius: 0.75rem;
+}
