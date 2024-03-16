@@ -1,85 +1,142 @@
+<div class="py-5">
+  <div
+    class="card rounded-5 col-12 col-sm-11 col-md-9 col-lg-8 col-xl-6 col-xxl-5 mx-auto p-5"
+  >
+    @if (showError){
+    <div
+      class="alert alert-danger alert-dismissible fade show border-0 d-flex align-items-center"
+      role="alert"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+        viewBox="0 0 16 16"
+        role="img"
+        aria-label="Warning:"
+      >
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+      </svg>
+      <div>
+        <strong>{{ errorMessage }}</strong>
+      </div>
 
-<!-- <div class="logo d-flex justify-content-center">
-    <img class=" mt-5" src="/assets/logo.webp">
-</div> -->
-<div class="container py-5">
-
-        <@if (showError){
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>{{ errorMessage }}</strong>
-        <button type="button" class="btn-close" aria-label="Close" data-dismis="alert" (click)="closeAlert()">
-        </button>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        data-dismis="alert"
+        (click)="closeAlert()"
+      ></button>
     </div>
-    } 
-
-        <div class="card p-4">
-            <form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
-
-                <div class="form-group my-2">
-                    <label for="fullName">Fullname</label>
-                    <input type="text" formControlName= "fullName" class="form-control my-2" placeholder="Type your name">
-                    <div class="text-danger mt-1" [hidden]="fullName.valid || fullName.pristine">
-                    <small>
-                        @if(fullName.errors?.['required']){
-                        Name is required}</small>
-                    <small>
-                        @if(fullName.errors?.['pattern']){
-                        Enter a valid name }</small>
-                    </div>
-                  </div>
-
-               
-                <div class="form-group my-2">
-                <label for="email">Email address</label>
-                <input type="email" formControlName= "email" class="form-control my-2" placeholder="Enter Email">
-                <div class="text-danger mt-1" [hidden]="email.valid || email.pristine">
-                    
-                    <small>
-                        @if(email.errors?.['required']){
-                        Email is required}</small>
-                   <small>
-                        @if(email.errors?.['email']){
-                        Email should be valid}</small>
-                </div>
-                </div>
-                <div class="form-group my-2">
-                    <label for="password">Password</label>
-                    <input type="password" formControlName= "password" class="form-control my-2" placeholder="Password">
-                    <div class="text-danger mt-1" [hidden]="password.valid || password.pristine">
-                        <small>
-                            @if(password.errors?.['required']){
-                            Password is required}</small>
-                        <small>
-                            @if(password.errors?.['pattern']){
-                            Password should be valid}</small>
-                    </div>
-                    </div>
-
-                    <div class="form-group my-2">
-                        <label for="confirmPassword">Confirm password</label>
-                        <input type="password" formControlName= "confirmPassword" class="form-control my-2" placeholder="Confirm password">
-                        <div class="text-danger mt-1" [hidden]="!confirmPassword.touched">
-                            <small>
-                                @if(confirmPassword.errors?.['required']){
-                                Confirm the password}</small>
-                                <small>
-                                    @if(registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid){
-                                    Password should match}</small>
-                            <!-- <small>
-                                @if(confirmPassword.errors?.['pattern']){
-                                Password should be valid}</small> -->
-                        </div>
-                        </div>
-
-                    <button type="submit" class="btn btn-secondary" [disabled]="registerForm.invalid">REGISTER</button>
-
-                    <div class="my-2">
-                        <span>Alredy a member? </span><a routerLink="/login">Login</a>
-    
-                    </div>
-            
-            </form>
-    
+    }
+    <div class="m-4">
+      <h2 class="my-2"><strong>Create Your Account</strong></h2>
+      <p class="my-2">
+        Star Wars Starships is not affiliated with The Walt Disney Company.
+        Email login is not supported on this platform.
+      </p>
+      <p class="my-4">
+        <span>Alredy a member? </span><a routerLink="/login">Login</a>
+      </p>
+      <form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+        <div class="form-group mt-3 mb-4">
+          <input
+            type="text"
+            formControlName="fullName"
+            class="form-control my-2 py-4 costum-input border-0"
+            placeholder="Fullname"
+          />
+          <div
+            class="text-danger mt-1"
+            [hidden]="fullName.valid || fullName.pristine"
+          >
+            <small>
+              @if(fullName.errors?.['required']){ Name is required}</small
+            >
+            <small>
+              @if(fullName.errors?.['pattern']){ Enter a valid name }</small
+            >
+          </div>
         </div>
-    </div>
 
+        <div class="form-group mt-3 mb-4">
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control my-2 py-4 costum-input border-0"
+            placeholder="Email"
+          />
+          <div
+            class="text-danger mt-1"
+            [hidden]="email.valid || email.pristine"
+          >
+            <small> @if(email.errors?.['required']){ Email is required}</small>
+            <small> @if(email.errors?.['email']){ Email should be valid}</small>
+          </div>
+        </div>
+        <div class="form-group mt-3 mb-4">
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control my-2 py-4 costum-input border-0"
+            placeholder="Create password"
+          />
+          <div
+            class="text-danger mt-1"
+            [hidden]="password.valid || password.pristine"
+          >
+            <small>
+              @if(password.errors?.['required']){ Password is required}</small
+            >
+            <small>
+              @if(password.errors?.['pattern']){ Password should be
+              valid}</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group mt-3 mb-4">
+          <input
+            type="password"
+            formControlName="confirmPassword"
+            class="form-control my-2 py-4 costum-input border-0"
+            placeholder="Confirm password"
+          />
+          <div class="text-danger mt-1" [hidden]="!confirmPassword.touched">
+            <small>
+              @if(confirmPassword.errors?.['required']){ Confirm the
+              password}</small
+            >
+            <small>
+              @if(registerForm.errors?.['passwordMismatch'] &&
+              confirmPassword.valid && password.valid){ Password should
+              match}</small
+            >
+          </div>
+        </div>
+
+        <p class="text-secondary my-5">
+          <small>
+            By creating an account, you consent to your email being registered
+            on a mock backend for private use. This website is a personal
+            project, and rest assured, your information will not be employed for
+            commercial purposes.</small
+          >
+        </p>
+
+        <button
+          type="submit my-2"
+          class="btn btn-warning w-100 rounded-pill py-4 border-0"
+          [disabled]="registerForm.invalid"
+        >
+          <strong>Create account</strong>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

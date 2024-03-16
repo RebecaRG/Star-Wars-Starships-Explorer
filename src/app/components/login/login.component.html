@@ -1,61 +1,118 @@
-<div class="py-5 ">
-        <div class="card rounded-5 col-12  col-sm-11 col-md-9 col-lg-8 col-xl-6 col-xxl-5 mx-auto p-5">
-            @if (showAlert){
-                <div class="alert alert-danger alert-dismissible fade show border-0 d-flex align-items-center" role="alert">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                      </svg>
-                    <div><strong>{{ alertMessage }}</strong> </div>
-                      
-                <button type="button" class="btn-close" aria-label="Close" data-dismis="alert" (click)="closeAlert()">
-                </button>
-            </div>
-            }
-            <div class="m-4">
-            <h2 class="my-2"><strong>Enter your email and password</strong></h2>
-            <p class="my-2"><span>Log into your Star Wars starships account. If you don't have one, you can </span> <a routerLink="/register">register here.</a></p>
-            <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-                <div class="form-group mt-3 mb-4">
-                <!-- <label for="email">Email address</label> -->
-                <input type="email" formControlName= "email" class="form-control my-2 py-4 costum-input border-0" placeholder="Email">
-                <div class="text-danger mt-1" [hidden]="email.valid || email.pristine">
-                    
-                    <small>
-                        @if(email.errors?.['required']){
-                        Email is required}</small>
-                   <small>
-                        @if(email.errors?.['email']){
-                        Email should be valid}</small>
-                </div>
-                </div>
-                <div class="form-group mt-3 mb-4">
-                    <!-- <label for="password">Password</label> -->
-                    <input type="password" formControlName= "password" class="form-control my-2 py-4 costum-input border-0" placeholder="Password">
-                    <div class="text-danger mt-1" [hidden]="password.valid || password.pristine">
-                        <small>
-                            @if(password.errors?.['required']){
-                            Password is required}</small>
-                        <small>
-                            @if(password.errors?.['pattern']){
-                            Password should be valid}</small>
-                    </div>
-                    </div>
+<div class="py-5">
+  <div
+    class="card rounded-5 col-12 col-sm-11 col-md-9 col-lg-8 col-xl-6 col-xxl-5 mx-auto p-5"
+  >
+    @if (showAlert){
+    <div
+      class="alert alert-danger alert-dismissible fade show border-0 d-flex align-items-center"
+      role="alert"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+        viewBox="0 0 16 16"
+        role="img"
+        aria-label="Warning:"
+      >
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+      </svg>
+      <div>
+        <strong>{{ alertMessage }}</strong>
+      </div>
 
-                    <button type="submit" class="btn btn-warning w-100 rounded-pill py-4 border-0" [disabled]="loginForm.invalid"><strong>Continue</strong></button>
-
-            </form>
-
-            <hr class="my-4">
-            <div class="text-secondary">
-            <p><strong>Stars Wars Spaceships is not part of The Walt Disney Family of Companies.</strong></p>
-            <p><small>This website is a personal project, and your email and password will be stored on a mock backend system. Please be assured that your information will not be used for any commercial purposes. This login enables access to a curated collection of Star Wars spacecraft, created by fans for fans.</small></p>
-            <p><small>If you've previously used your email with this or similar fan projects, feel free to use it here as well.</small></p>
-            </div> 
-        </div>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        data-dismis="alert"
+        (click)="closeAlert()"
+      ></button>
     </div>
+    }
+    <div class="m-4">
+      <h2 class="my-2"><strong>Enter your email and password</strong></h2>
+      <p class="my-2">
+        <span
+          >Log into your Star Wars Starships account. If you don't have one, you
+          can
+        </span>
+        <a routerLink="/register">register here.</a>
+      </p>
+      <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <div class="form-group mt-3 mb-4">
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control my-2 py-4 costum-input border-0"
+            placeholder="Email"
+          />
+          <div
+            class="text-danger mt-1"
+            [hidden]="email.valid || email.pristine"
+          >
+            <small> @if(email.errors?.['required']){ Email is required}</small>
+            <small> @if(email.errors?.['email']){ Email should be valid}</small>
+          </div>
+        </div>
+        <div class="form-group mt-3 mb-4">
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control my-2 py-4 costum-input border-0"
+            placeholder="Password"
+          />
+          <div
+            class="text-danger mt-1"
+            [hidden]="password.valid || password.pristine"
+          >
+            <small>
+              @if(password.errors?.['required']){ Password is required}</small
+            >
+            <small>
+              @if(password.errors?.['pattern']){ Password should be
+              valid}</small
+            >
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-warning w-100 rounded-pill py-4 border-0"
+          [disabled]="loginForm.invalid"
+        >
+          <strong>Continue</strong>
+        </button>
+      </form>
+
+      <hr class="my-4" />
+      <div class="text-secondary">
+        <p>
+          <strong
+            >Stars Wars Spaceships is not part of The Walt Disney Family of
+            Companies.</strong
+          >
+        </p>
+        <p>
+          <small
+            >This website is a personal project, and your email and password
+            will be stored on a mock backend system. Please be assured that your
+            information will not be used for any commercial purposes. This login
+            enables access to a curated collection of Star Wars spacecraft,
+            created by fans for fans.</small
+          >
+        </p>
+        <p>
+          <small
+            >If you've previously used your email with this or similar fan
+            projects, feel free to use it here as well.</small
+          >
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
-    
-
-
-    
-
