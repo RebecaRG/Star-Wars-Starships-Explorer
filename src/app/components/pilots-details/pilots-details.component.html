@@ -1,17 +1,23 @@
-@if(pilots$ | async; as pilots){
-    @if(pilots.length >0) {
+@if(pilots$ | async; as pilots){ @if(pilots.length >0) {
 <div class="container">
-    <h2 class="my-3">PILOTS</h2>
-   
-        @for(pilot of pilots; track $index){
-        <div class="card my-2 border rounded-3 border-0">
-            <img [src]="getPilotImage(pilot.url)" class="card-img-top" alt="{{pilot.name}}"> 
-            <div class="card-body bg-secondary">
-                <h3 class="card-text text-white">{{pilot.name}}</h3>
-            </div>
+  <h2 class="mt-5 mb-3">PILOTS</h2>
+  <hr class="mb-4" />
+  <div class="d-flex flex-wrap justify-content-around">
+    @for(pilot of pilots; track $index){
+    <div class="d-flex">
+      <div class="my-4 card cardCustom border rounded-4 border-0">
+        <img
+          [src]="getPilotImage(pilot.url)"
+          class="imgCustom rounded-img"
+          alt="{{ pilot.name }}"
+        />
+        <div class="card-body">
+          <p class="card-text text-white text-center">{{ pilot.name }}</p>
         </div>
+      </div>
+    </div>
     }
+  </div>
 </div>
-}
-}
 
+} }
