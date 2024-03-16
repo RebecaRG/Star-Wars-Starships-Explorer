@@ -1,9 +1,4 @@
-
-<!-- <div class="logo d-flex justify-content-center">
-    <img class=" mt-5" src="/assets/logo.webp">
-</div> -->
-
-<div class="container py-5">
+<div class="py-5 ">
 
     <@if (showAlert){
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -13,11 +8,14 @@
     </div>
     }
 
-        <div class="card p-4">
+        <div class="card rounded-5 col-12  col-sm-11 col-md-9 col-lg-8 col-xl-6 col-xxl-5 mx-auto p-5">
+            <div class="m-4">
+            <h2 class="my-2"><strong>Enter your email and password</strong></h2>
+            <p class="my-2"><span>Log into your Star Wars starships account. If you don't have one, you can </span> <a routerLink="/register">register here.</a></p>
             <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-                <div class="form-group my-2">
-                <label for="email">Email address</label>
-                <input type="email" formControlName= "email" class="form-control my-2" placeholder="Enter Email">
+                <div class="form-group mt-3 mb-4">
+                <!-- <label for="email">Email address</label> -->
+                <input type="email" formControlName= "email" class="form-control my-2 py-4 costum-input border-0" placeholder="Email">
                 <div class="text-danger mt-1" [hidden]="email.valid || email.pristine">
                     
                     <small>
@@ -28,9 +26,9 @@
                         Email should be valid}</small>
                 </div>
                 </div>
-                <div class="form-group my-2">
-                    <label for="password">Password</label>
-                    <input type="password" formControlName= "password" class="form-control my-2" placeholder="Password">
+                <div class="form-group mt-3 mb-4">
+                    <!-- <label for="password">Password</label> -->
+                    <input type="password" formControlName= "password" class="form-control my-2 py-4 costum-input border-0" placeholder="Password">
                     <div class="text-danger mt-1" [hidden]="password.valid || password.pristine">
                         <small>
                             @if(password.errors?.['required']){
@@ -41,17 +39,21 @@
                     </div>
                     </div>
 
-                    <button type="submit" class="btn btn-secondary" [disabled]="loginForm.invalid">SIGN IN </button>
+                    <button type="submit" class="btn btn-warning w-100 rounded-pill py-4 border-0" [disabled]="loginForm.invalid"><strong>Continue</strong></button>
 
-
-                <div class="my-2">
-                    <span>Not a member? </span><a routerLink="/register">Register</a>
-
-                </div>
-            
             </form>
-    
+
+            <hr class="my-4">
+            <div class="text-secondary">
+            <p><strong>Stars Wars Spaceships is not part of The Walt Disney Family of Companies.</strong></p>
+            <p><small>This website is a personal project, and your email and password will be stored on a mock backend system. Please be assured that your information will not be used for any commercial purposes. This login enables access to a curated collection of Star Wars spacecraft, created by fans for fans.</small></p>
+            <p><small>If you've previously used your email with this or similar fan projects, feel free to use it here as well.</small></p>
+            </div> 
         </div>
     </div>
+</div>
+    
+
+
     
 

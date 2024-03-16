@@ -11,8 +11,13 @@
     <img src="/assets/logo.webp">
 </div>
 <div class="me-5 mt-3">
-    <a class="nav-link text-white" routerLink="/login">LOGIN</a>
-    <a href="" class="nav-link text-white" (click)="logOut()">LOGOUT</a>
+    @if(!userService.isLoggedIn()){
+        <a class="nav-link text-secondary" routerLink="/login">LOGIN</a>
+    }
+    @if(userService.isLoggedIn()){
+        <a href="" class="nav-link text-secondary" (click)="logOut()">LOGOUT</a>
+    }
+
 </div>
 </div>
 

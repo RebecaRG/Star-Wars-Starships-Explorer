@@ -7,7 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { userGuard } from './guards/user.guard';
 
 export const routes: Routes = [
-    {path: 'home', component: WelcomeComponent, canActivate:[userGuard]},
+    {path: 'home', component: WelcomeComponent},
     {path: 'starships', component: StarshipListComponent, canActivate:[userGuard]},
     {path: 'starships/:id', component: DetailsComponent, canActivate:[userGuard]},
     {path: 'login', component: LoginComponent},

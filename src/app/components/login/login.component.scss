@@ -6,11 +6,12 @@
     min-height: 100vh;
 }
 
-// .logo{
-//     height: 7rem;
-//     width: auto;
-// }
-// .logo img{
-//     height: 100%;
-//     width: auto;
-// }
+:host {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.costum-input{
+    background-color: #E9EBF0;
+}

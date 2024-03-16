@@ -15,7 +15,9 @@ import { Film } from '../interfaces/film';
     throw new Error('Method not implemented.');
   }
 
-  private baseUrl = 'https://swapi.py4e.com/api';
+  private baseUrl = 'https://swapi.dev/api/';
+  //Alternative API in case the previous one does not work:
+  //private baseUrl = 'https://swapi.py4e.com/api';
   private imageBaseUrl = 'https://starwars-visualguide.com/assets/img';
 
   constructor(private http: HttpClient) { }
