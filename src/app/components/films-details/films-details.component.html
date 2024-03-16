@@ -6,11 +6,11 @@
     <div class="d-flex flex-wrap justify-content-around">
         @for(film of films; track $index){
             <div class="d-flex">
-                <div class="my-4 card cardCustom border rounded-4 border-0">
-            <img [src]="getFilmImage(film.url)" class= "imgCustom rounded-img" alt="{{film.title}}"> 
+                <div class="my-4 card bg-black border border-0">
+            <img [src]="getFilmImage(film.url)" class= "rounded-4" alt="{{film.title}}"> 
             <div class="card-body bg">
-                <p class="card-text text-white"><strong>{{(film.title).toUpperCase()}}</strong></p>
-                <p class="card-text text-white">Episode {{film.episode_id}}</p>
+                <span class="card-text text-white"><strong>{{(film.title).toUpperCase()}}</strong></span><br>
+                <span class="card-text text-white">Episode {{film.episode_id}}</span>
 
             </div>
         </div>
