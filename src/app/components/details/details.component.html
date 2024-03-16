@@ -1,4 +1,4 @@
-<div class="container text-white my-4">
+<div class="container text-white myt-4 pb-4">
     <h2 class="mt-5 mb-3">STARSHIP</h2>
     <hr class="mb-4">
     
@@ -35,8 +35,13 @@
 <app-pilots-details [pilotsUrl]="starship.pilots"></app-pilots-details>
 <app-films-details [filmsUrl]="starship.films"></app-films-details>
 }
-
-<button routerLink="/starships">Starship list</button>
+<div class="my-4">
+<button
+type="submit"
+class="btn btn-warning rounded-pill py-3 px-5 border-0 buttonFont"
+routerLink="/starships"><strong>Starship list</strong>
+</button>
+</div>
 
 </div>
 
