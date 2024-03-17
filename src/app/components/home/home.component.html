@@ -1,31 +1,32 @@
-<div class="">
-<div class="d-flex justify-content-between pt-4 pb-3">
-<div class="ms-5 mt-3">
-    <img class="me-3" src="/assets/facebook.svg">
-    <img class="me-3" src="/assets/instagram.svg">
-    <img class="me-3" src="/assets/twitter.svg">
-    <img class="me-3" src="/assets/youtube.svg">
-
+<div class="container-fluid pt-4 pb-3">
+  <div class="row align-items-center">
+    <div
+      class="col-lg-4 col-12 d-flex justify-content-lg-start justify-content-center mb-lg-0 mb-3"
+    >
+      <div class="ps-0 ps-lg-3">
+        <img class="me-3" src="/assets/facebook.svg" />
+        <img class="me-3" src="/assets/instagram.svg" />
+        <img class="me-3" src="/assets/twitter.svg" />
+        <img class="me-3" src="/assets/youtube.svg" />
+      </div>
+    </div>
+    <div class="col-lg-4 col-12 d-flex justify-content-center mb-lg-0 mb-3">
+      <div class="logo">
+        <img src="/assets/logo.webp" />
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-12 d-flex justify-content-lg-end justify-content-center"
+    >
+      @if(!userService.isLoggedIn()){
+      <a class="nav-link text-secondary pe-3" routerLink="/login">LOGIN</a>
+      } @if(userService.isLoggedIn()){
+      <a href="" class="nav-link text-secondary pe-3" (click)="logOut()"
+        >LOGOUT</a
+      >
+      }
+    </div>
+  </div>
 </div>
-<div class="logo">
-    <img src="/assets/logo.webp">
-</div>
-<div class="me-5 mt-3">
-    @if(!userService.isLoggedIn()){
-        <a class="nav-link text-secondary" routerLink="/login">LOGIN</a>
-    }
-    @if(userService.isLoggedIn()){
-        <a href="" class="nav-link text-secondary" (click)="logOut()">LOGOUT</a>
-    }
-
-</div>
-</div>
-
-</div>
-<app-navbar/>
+<app-navbar />
 <router-outlet></router-outlet>
-
-
-
-
-
