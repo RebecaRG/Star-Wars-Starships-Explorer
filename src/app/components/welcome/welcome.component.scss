@@ -4,3 +4,13 @@
     font-style: normal;
 }
 
+.carousel-item {
+    height: 475px;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%; 
+  }
+
