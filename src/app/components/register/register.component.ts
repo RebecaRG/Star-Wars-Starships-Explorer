@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { passwordMatchValidator } from '../shared/password-match.directive';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
@@ -18,7 +18,7 @@ export class RegisterComponent {
   showError: boolean = false;
   errorMessage: string = '';
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
 
   get fullName(){
@@ -48,24 +48,33 @@ export class RegisterComponent {
   });
 
 
-submitDetails() {
-  const postData = { ...this.registerForm.value }; 
-  delete postData.confirmPassword; 
-  this.userService.registerUser(postData as User).subscribe({
-    next: (response) => {
-      localStorage.setItem('email', postData.email!); 
-      localStorage.setItem('token', response.accessToken);
-      this.router.navigate(['/home']); 
-    },
-    error: (error) => {
-      this.showError = true;
-      this.errorMessage = error.message;
-    }
-  });
-}
+  submitDetails() {
+    const postData = { ...this.registerForm.value };
+    delete postData.confirmPassword;
+    this.userService.registerUser(postData as User).subscribe({
+      next: (response) => {
+        this.userService.login(postData.email!, postData.password!).subscribe({
+          next: (loginResponse) => {
+            const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+            this.router.navigateByUrl(returnUrl);
+            localStorage.setItem('email', postData.email!); 
+            localStorage.setItem('token', response.accessToken);
+          },
+          error: (loginError) => {
+            console.error('Error logging in after registration:', loginError);
+          }
+        });
+      },
+      error: (error) => {
+        this.showError = true;
+        this.errorMessage = error.message;
+      }
+    });
+  }
+  
 
-closeAlert() {
-  this.showError = false;
-}
+  closeAlert() {
+    this.showError = false;
+  }
 
 }

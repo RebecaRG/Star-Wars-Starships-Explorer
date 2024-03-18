@@ -4,12 +4,12 @@ Set sail across the Star Wars universe with our Angular 17 powered web app, safe
 
 ## Features 🛸🔍
 
-📜 **Explore Starships**: Browse through an extensive list of Star Wars starships, showcasing names and models. 
-💡 **Starship Details**: Click to see detailed info about each starship, including specifications and appearances. 
-⏬ **Navigation Options**: Use pagination or infinite scroll to navigate through the starships catalog. 
-🎨 **Star Wars Theme**: The design is heavily inspired by the Star Wars universe, offering an immersive experience. 
-🔐 **Secure Access**: Log in and registration are powered by `json-server-auth (json-server@0.17.4)`, keeping the data secure. 
-🛡️ **Protected Routes**: Advanced route guarding ensures that navigation within the app remains secure. 
+- 📜 **Explore Starships**: Browse through an extensive list of Star Wars starships, showcasing names and models. 
+- 💡 **Starship Details**: Click to see detailed info about each starship, including specifications and appearances. 
+- ⏬ **Navigation Options**: Use pagination or infinite scroll to navigate through the starships catalog. 
+- 🎨 **Star Wars Theme**: The design is heavily inspired by the Star Wars universe, offering an immersive experience. 
+- 🔐 **Secure Access**: Log in and registration are powered by `json-server-auth (json-server@0.17.4)`, keeping the data secure. 
+- 🛡️ **Protected Routes**: Advanced route guarding ensures that navigation within the app remains secure. 
 
 ## Getting Started 🌠
 
@@ -17,7 +17,10 @@ Set sail across the Star Wars universe with our Angular 17 powered web app, safe
 2. Make sure you have **Node.js** and **Angular CLI** installed.
 3. Run `npm install` to **install dependencies**.
 4. **Launch** the app with `ng serve`.
-5. **Visit** `http://localhost:4200` to start exploring.
+5. **Active Backend** run the terminal `npx json-server-auth db.json`.
+6. **API Check** (optional) at `http://localhost:3000`.
+7. **Visit** `http://localhost:4200` to start exploring.
+
 
 ## Unit Testing with Jasmine & Karma 🛠️🛰️
 

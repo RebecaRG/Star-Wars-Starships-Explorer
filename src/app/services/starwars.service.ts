@@ -10,10 +10,7 @@ import { Film } from '../interfaces/film';
   providedIn: 'root'
 })
 
- export class StarwarsService {
-  static getStarShipList() {
-    throw new Error('Method not implemented.');
-  }
+export class StarwarsService {
 
   private baseUrl = 'https://swapi.dev/api/';
   //Alternative API in case the previous one does not work:
@@ -26,7 +23,7 @@ import { Film } from '../interfaces/film';
     return this.http.get<StarshipResults>(url);
   }
 
-  getStarshipDetails(id: string) : Observable<Starship>{
+  getStarshipDetails(id: string): Observable<Starship> {
     return this.http.get<Starship>(`${this.baseUrl}/starships/${id}`);
   }
 
@@ -34,12 +31,12 @@ import { Film } from '../interfaces/film';
     return `${this.imageBaseUrl}/starships/${id}.jpg`;
   }
 
-  getPilotDetails(url: string) : Observable<Pilot>{
+  getPilotDetails(url: string): Observable<Pilot> {
     return this.http.get<Pilot>(url);
   }
 
-  getFilmDetails(url: string) : Observable<Film>{
+  getFilmDetails(url: string): Observable<Film> {
     return this.http.get<Film>(url);
   }
-  
+
 }

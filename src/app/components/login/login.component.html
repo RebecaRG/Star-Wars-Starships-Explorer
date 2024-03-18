@@ -41,7 +41,7 @@
           >Log into your Star Wars Starships account. If you don't have one, you
           can
         </span>
-        <a routerLink="/register">register here.</a>
+        <a [routerLink]="['/register']" [queryParams]="{ returnUrl: route.snapshot.queryParams['returnUrl'] || '/' }">register here.</a>
       </p>
       <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
         <div class="form-group mt-3 mb-4">

@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
@@ -12,22 +12,22 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent {
 
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
+  constructor(public userService: UserService, private router: Router, public route: ActivatedRoute) { }
 
   showAlert: boolean = false;
   alertMessage: string = "";
- 
-  get email(){
+
+  get email() {
     return this.loginForm.get('email') as FormControl;
   }
 
-  get password(){
+  get password() {
     return this.loginForm.get('password') as FormControl;
   }
 
   loginForm = new FormGroup({
-    'email' : new FormControl('', [Validators.required, Validators.email]),
-    'password' : new FormControl ('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{3,}$/)])
+    'email': new FormControl('', [Validators.required, Validators.email]),
+    'password': new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{3,}$/)])
   });
 
   loading = false;
@@ -40,7 +40,7 @@ export class LoginComponent {
     }
 
     this.loading = true;
-  
+
     if (typeof email === 'string' && typeof password === 'string') {
       this.userService.login(email, password).subscribe({
         next: (response) => {

@@ -31,7 +31,7 @@ export class UserService {
   }
 
   login(email: string, password: string): Observable<any> {
-    const fakeToken = 'simulatedToken'; 
+    const fakeToken = 'simulatedToken';
     localStorage.setItem('userToken', fakeToken);
     this.loggedIn.next(true);
     return this.http.post(`${this.baseUrl}/login`, { email, password }).pipe(
@@ -43,13 +43,13 @@ export class UserService {
     return !!localStorage.getItem('userToken');
   }
 
-  logOut(): void{
+  logOut(): void {
     localStorage.removeItem('userToken');
     this.loggedIn.next(false);
   }
-  
 
-  getUserByEmail(email: string): Observable<User[]>{
+
+  getUserByEmail(email: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`);
   }
 
@@ -59,7 +59,7 @@ export class UserService {
       errorMessage = `Error: ${error.error.message}`;
     } else {
       if (error.status === 400) {
-        errorMessage = error.error || errorMessage; 
+        errorMessage = error.error || errorMessage;
       }
     }
     return throwError(() => new Error(errorMessage));

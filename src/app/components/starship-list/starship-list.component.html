@@ -1,14 +1,22 @@
-<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+>
   @if(starshipResult$ | async; as resultObject){
 
   <div class="container py-4">
     <div class="row d-flex align-items-center mx-5">
       @for(starship of starshipArray; track $index){
-        <button [routerLink] = "['/starships' , extractId(starshipArray[$index].url)]"
-        class="text-secondary text-start px-4 py-3 border border-0 border-rounded rounded-1 cardCustom my-2 col-10 mx-auto">
+      <button
+        [routerLink]="['/starships', extractId(starshipArray[$index].url)]"
+        class="text-secondary text-start px-4 py-3 border border-0 border-rounded rounded-1 cardCustom my-2 col-10 mx-auto"
+      >
         <span class="textName">{{
-            starshipArray[$index].name.toUpperCase()
-        }}</span><br />
+          starshipArray[$index].name.toUpperCase()
+        }}</span
+        ><br />
         <span class="textModel">{{ starshipArray[$index].model }}</span>
       </button>
       }
