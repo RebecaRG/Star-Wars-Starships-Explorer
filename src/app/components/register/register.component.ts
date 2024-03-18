@@ -41,7 +41,7 @@ export class RegisterComponent {
   registerForm = new FormGroup({
     'fullName': new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z ]{3,}$/)]),
     'email' : new FormControl('', [Validators.required, Validators.email]),
-    'password' : new FormControl ('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{3,}$/)]),
+    'password' : new FormControl ('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{4,}$/)]),
     'confirmPassword' : new FormControl ('', [Validators.required]),
   }, {
     validators: passwordMatchValidator

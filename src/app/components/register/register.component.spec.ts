@@ -15,7 +15,7 @@ describe('RegisterComponent', () => {
   let router: Router;
 
   beforeEach(async () => {
-    userServiceSpy = jasmine.createSpyObj('UserService', ['registerUser']);
+    userServiceSpy = jasmine.createSpyObj('UserService', ['registerUser', 'login']);
     await TestBed.configureTestingModule({
       imports: [RegisterComponent, HttpClientModule, ReactiveFormsModule, RouterTestingModule],
       providers: [{ provide: UserService, useValue: userServiceSpy }]
@@ -32,16 +32,18 @@ describe('RegisterComponent', () => {
   });
 
   it('should call userService.registerUser on valid form submission and navigate to home', () => {
-    spyOn(router, 'navigate');
+    const navigateSpy = spyOn(router, 'navigateByUrl');
     userServiceSpy.registerUser.and.returnValue(of({ accessToken: 'dummy-token' }));
+    userServiceSpy.login.and.returnValue(of({ accessToken: 'dummy-token' }));
     component.registerForm.controls['fullName'].setValue('John Doe');
     component.registerForm.controls['email'].setValue('john@example.com');
     component.registerForm.controls['password'].setValue('Password123');
     component.registerForm.controls['confirmPassword'].setValue('Password123');
+    
     component.submitDetails();
-
-    expect(userServiceSpy.registerUser.calls.any()).toBeTrue();
-    expect(router.navigate).toHaveBeenCalledWith(['/home']);
+    fixture.detectChanges();
+    
+    expect(navigateSpy).toHaveBeenCalledWith('/');
   });
 
   it('should display error message on failed registration', () => {

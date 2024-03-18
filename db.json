@@ -5,6 +5,18 @@
       "password": "$2a$10$D4MwPok.yOb1WW.mVbX3DOCQapBqvkVf4xk6qh4PT0OKPOyvT2NOy",
       "fullName": "test",
       "id": 1
+    },
+    {
+      "email": "test1@test.com",
+      "password": "$2a$10$oqwROa4aJ0IQIoBg3YtAfudufjuV6iOM3B/UgZC2vnCFObQD8/B3O",
+      "fullName": "Test",
+      "id": 2
+    },
+    {
+      "email": "test0@test.com",
+      "password": "$2a$10$ODHTAp9oyUPFR5.LrHRDpe5nfUNiqpwbj91aS9ko6l3XJ7i4gWfzy",
+      "fullName": "test",
+      "id": 3
     }
   ]
 }
