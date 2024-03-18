@@ -19,6 +19,26 @@ Set sail across the Star Wars universe with our Angular 17 powered web app, safe
 4. **Launch** the app with `ng serve`.
 5. **Visit** `http://localhost:4200` to start exploring.
 
+## Unit Testing with Jasmine & Karma 🛠️🛰️
+
+Our application's resilience and functionality are ensured through unit tests for key components, facilitated by Jasmine and Karma. To embark on the testing journey, simply execute `ng test`.
+
+🔑**Login Tests**:
+  - Validates initial form state with empty fields.
+  - Verifies successful login with valid credentials.
+  - Asserts validation for empty or incorrect inputs.
+
+📝**Register Tests**:
+  - Tests valid form submission and navigation.
+  - Displays error message upon registration failure.
+
+🕹️**Navbar Tests**:
+  - Confirms navigation links to Home and Starships pages.
+  - Ensures the presence of `router-outlet` for component rendering.
+
+Leverage these tests to ensure the Star Wars Starships Explorer operates at the zenith of its capabilities. We welcome your contributions to enhance this cosmic journey!
+
+
 ## License 📄
 
 Distributed under the MIT License. It allows for free use, modification, and distribution of the software.
