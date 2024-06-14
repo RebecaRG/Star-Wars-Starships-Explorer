@@ -49,3 +49,10 @@ Distributed under the MIT License. It allows for free use, modification, and dis
 ## Contributing 🤝
 
 Your contributions make the open-source community thrive. Feel free to **fork**, **edit**, and **submit pull requests** to help improve the Star Wars Starships Explorer.
+
+## Web exemples 📷 
+  <img src="/starwars_photos_web/starwars_photo_web_3.png" alt="Register" width="75%"/>
+  <img src="/starwars_photos_web/starwars_photo_web_2.png" alt="Home" width="75%"/>
+  <img src="/starwars_photos_web/starwars_photo_web_5.png" alt="Details" width="75%"/>
+
+
